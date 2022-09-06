@@ -43,7 +43,13 @@
             $(document).on('click', '#save_button', function(){
                 console.log(this)
                 console.log($(this).data('cool'))
+
+                fetch('db_create_task.php?thing1=poo').then(function(data){
+                    console.log(data)
+                })
             })
+
+            
 
              // attach event to save button
 
