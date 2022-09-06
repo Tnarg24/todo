@@ -16,3 +16,5 @@
 
 
 $thing1 = $_GET['thing1'];
+
+echo $thing1;
