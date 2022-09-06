@@ -19,12 +19,12 @@
         <h1 id="title">Create Task</h1>
 
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Title</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Feed Dog">
+            <label for="task_title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="task_title" placeholder="Feed Dog">
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Task description</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="task_description" class="form-label">Task description</label>
+            <textarea class="form-control" id="task_description" rows="3"></textarea>
           </div>
 
 
@@ -44,10 +44,10 @@
                 console.log(this)
                 console.log($(this).data('cool'))
 
-                // fetch('db_create_task.php?thing1=poo').then(function(data){
-                //     console.log(data)
-                // })
-
+            var title =  $('#task_title').val()
+            var description =  $('#task_description').val()
+            console.log(description, title)
+                
                 $.ajax({
                     url: "db_create_task.php?thing1=poo", 
                     success: function(result){
