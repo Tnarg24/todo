@@ -17,4 +17,4 @@
 
 $thing1 = $_GET['thing1'];
 
-echo $thing1;
+echo json_encode($thing1);
