@@ -15,6 +15,9 @@
 // }
 
 
-$thing1 = $_GET['thing1'];
+$title = $_GET['title'];
+$description = $_GET['description'];
 
-echo json_encode($thing1);
+$task = $title ." - ". $description;
+
+echo json_encode($task);
