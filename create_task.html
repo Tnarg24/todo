@@ -44,10 +44,19 @@
                 console.log(this)
                 console.log($(this).data('cool'))
 
-                fetch('db_create_task.php?thing1=poo').then(function(data){
-                    console.log(data)
-                })
+                // fetch('db_create_task.php?thing1=poo').then(function(data){
+                //     console.log(data)
+                // })
+
+                $.ajax({
+                    url: "db_create_task.php?thing1=poo", 
+                    success: function(result){
+                        console.log(result)
+                    }
+                });
             })
+
+
 
             
 
