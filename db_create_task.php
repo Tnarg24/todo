@@ -12,8 +12,11 @@
     // Establish the connection 
     mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL); 
     //If connection failed, show the error 
-    if (mysqli_connect_errno()) {     die('Failed to connect to MySQL: '.mysqli_connect_error()); }
+    if (mysqli_connect_errno()) {     die('Failed to connect to MySQL: '.mysqli_connect_error()); };
 
+
+
+print_r($conn);
 
 // $title = $_POST['title'];
 // $description = $_POST['description'];
