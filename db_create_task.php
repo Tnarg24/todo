@@ -20,4 +20,4 @@ $description = $_GET['description'];
 
 $task = $title ." - ". $description;
 
-return json_encode($task);
+echo json_encode($task);
