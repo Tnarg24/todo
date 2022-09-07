@@ -39,12 +39,16 @@
                 $(document).on('click', '#save_button', function(){
                 
 
-                var title =  $('#task_title').val()
-                var description =  $('#task_description').val()
+                
                 console.log(title, description)
                 
                 $.ajax({
                     url: `db_create_task.php?title=${title}&&description=${description}`, 
+                    type: 'POST',
+                    data: {
+                        title :  $('#task_title').val(),
+                        description :  $('#task_description').val() 
+                    },
                     success: function(result){
                         console.log(result)
                     }
