@@ -15,8 +15,8 @@
 // }
 
 
-$title = $_GET['title'];
-$description = $_GET['description'];
+$title = $_POST['title'];
+$description = $_POST['description'];
 
 $task = $title ." - ". $description;
 
