@@ -36,17 +36,12 @@
 
         <script>
 
-            // $(document).ready(function(){
-            //     console.log ('hello')
-            // })
+                $(document).on('click', '#save_button', function(){
+                
 
-            $(document).on('click', '#save_button', function(){
-                console.log(this)
-                console.log($(this).data('cool'))
-
-            var title =  $('#task_title').val()
-            var description =  $('#task_description').val()
-            console.log(description, title)
+                var title =  $('#task_title').val()
+                var description =  $('#task_description').val()
+                console.log(title, description)
                 
                 $.ajax({
                     url: `db_create_task.php?title=${title}&&description=${description}`, 
@@ -55,6 +50,43 @@
                     }
                 });
             })
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+            // $(document).ready(function(){
+            //     console.log ('hello')
+            // })
+
+
+
+            // $(document).on('click', '#save_button', function(){
+            //     console.log(this)
+            //     console.log($(this).data('cool'))
+
+            // var title =  $('#task_title').val()
+            // var description =  $('#task_description').val()
+            // console.log(description, title)
+                
+            //     $.ajax({
+            //         url: `db_create_task.php?title=${title}&&description=${description}`, 
+            //         success: function(result){
+            //             console.log(result)
+            //         }
+            //     });
+            // })
 
 
 
