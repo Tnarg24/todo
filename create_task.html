@@ -38,9 +38,6 @@
 
                 $(document).on('click', '#save_button', function(){
                 
-
-                
-                console.log(title, description)
                 
                 $.ajax({
                     url: `db_create_task.php?title=${title}&&description=${description}`, 
