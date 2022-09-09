@@ -17,7 +17,7 @@ if (mysqli_connect_errno()) {
 
 
 
-print_r($conn);
+//print_r($conn);
 
 
 
@@ -33,7 +33,7 @@ if (mysqli_query($conn, '
     );
 ')) 
 
-{ printf("Table created\n"); }
+//{ printf("Table created\n"); }
 
 
 //Create an Insert prepared statement and run it 
@@ -55,7 +55,11 @@ if ($stmt = mysqli_prepare($conn, "
 printf("Reading data from table: \n");
 $res = mysqli_query($conn, 'SELECT * FROM Products');
 while ($row = mysqli_fetch_assoc($res)) {
-    var_dump($row); 
+//    var_dump($row); 
+
+    echo "Product Name: " . $row["ProductName"];
+    echo "<br /><br />";
+    echo "Color: " . $row["Color"];
 }
 
 
