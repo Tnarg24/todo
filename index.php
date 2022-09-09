@@ -43,29 +43,22 @@
         while ($row = mysqli_fetch_assoc($res)) {
         //    var_dump($row); 
 
-            echo "Product Name: " . $row["ProductName"];
-            echo "<br /><br />";
-            echo "Color: " . $row["Color"];
-}
+            // echo "Product Name: " . $row["ProductName"];
+            // echo "<br /><br />";
+            // echo "Color: " . $row["Color"];
+
+            echo "<div style='padding: 5px 0px 5px 0px'>
+                ". $row["ProductName"] . "
+                <div style='padding-top: 2px'>". $row["Color"] . "</div>
+                </div>
+            ";
+        }
 
     ?>
 
 
 
-        <div style="padding: 5px 0px 5px 0px">
-            Example task title
-            <div style="padding-top: 2px">Description</div>
-        </div>
-
-        <div style="padding: 5px 0px 5px 0px">
-            Example task title
-            <div style="padding-top: 2px">Description</div>
-        </div>
-
-        <div style="padding: 5px 0px 5px 0px">
-            Example task title
-            <div style="padding-top: 2px">Description</div>
-        </div>
+       
 
         <a  href="create_task.html" class="btn btn-primary btn-md">Create New</a>
 
