@@ -31,7 +31,7 @@
             <div style="padding-top: 2px">Description</div>
         </div>
 
-        <a  href="create_task.html" class="btn btn-primary btn-md">Description</a>
+        <a  href="create_task.html" class="btn btn-primary btn-md">Create New</a>
 
         
 
