@@ -153,6 +153,17 @@ textarea {
     cursor: pointer;
 }
 
+.anchor {
+    display: block;
+    width: 100%;
+    padding: 00.75rem;
+    background: rgb(53, 50, 50);
+    color: inherit;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
 
 
 
