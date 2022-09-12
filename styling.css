@@ -30,7 +30,7 @@ body::before {
     background-position: center;
 }
 
-.container_gs {
+.container {
     width: 100%;
     margin: 3.125rem auto 3.125rem auto;
 }

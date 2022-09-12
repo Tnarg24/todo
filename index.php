@@ -32,7 +32,7 @@
 
 <body>
 
-    <div class="container_gs">
+    <div class="container">
            
         <h1>To Do</h1>
 
