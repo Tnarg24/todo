@@ -40,7 +40,7 @@
 
         //Run the Select query 
         //printf("Reading data from table: \n");
-        $res = mysqli_query($conn, 'SELECT * FROM Products');
+        $res = mysqli_query($conn, 'SELECT * FROM tasks');
         while ($row = mysqli_fetch_assoc($res)) {
         //    var_dump($row); 
 
@@ -49,8 +49,8 @@
             // echo "Color: " . $row["Color"];
 
             echo "<div style='padding: 5px 0px 5px 0px'>
-                ". $row["ProductName"] . "
-                <div style='padding-top: 2px'>". $row["Color"] . "</div>
+                ". $row["title"] . "
+                <div style='padding-top: 2px'>". $row["description"] . "</div>
                 </div>
             ";
         }
