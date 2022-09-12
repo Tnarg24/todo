@@ -77,8 +77,8 @@
 
         <script>
 
-                $(document).on('click', '#save_button', function(){
-                
+            $(document).on('click', '#save_button', function(e){
+                e.preventDefault();      
                 
                 $.ajax({
                     url: `db_create_task.php`, 
