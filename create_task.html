@@ -82,7 +82,7 @@
                 
                 $.ajax({
                     url: `db_create_task.php`, 
-                    type: 'POST',
+                    type: 'POST', //Request object
                     data: {
                         title :  $('#task_title').val(),
                         description :  $('#task_description').val() 
