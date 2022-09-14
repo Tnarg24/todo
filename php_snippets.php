@@ -1,7 +1,7 @@
 <?php
 
 
-include("db_connection.php");
+include "db_connection.php";
 
 // Run the create table query 
 if (mysqli_query($conn, ' 
