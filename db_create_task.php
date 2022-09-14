@@ -1,5 +1,5 @@
 <?php
-
+try{
 
 $host = 'todoappdb.mysql.database.azure.com';
 $username = 'standishg';
@@ -17,7 +17,7 @@ if (mysqli_connect_errno()) {
 
 print_r($conn);
 
-try{
+
 
     if (isset($_POST['title']) && isset($_POST['description'])){
 
