@@ -1,6 +1,6 @@
 <?php
 
-include("db_connection.php");
+include "db_connection.php";
 
 //Run the Select query 
 //printf("Reading data from table: \n");
