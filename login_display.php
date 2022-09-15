@@ -28,8 +28,8 @@ include "db_connection.php";
         //Run the Select query 
         //printf("Reading data from table: \n");
         $res1 = mysqli_query($conn, 'SELECT * FROM login_page');
-        while ($row = mysqli_fetch_assoc($res1)) {
-        //    var_dump($row); 
+        while ($row1 = mysqli_fetch_assoc($res1)) {
+        //    var_dump($row1); 
 
             echo "<div style='padding: 5px 0px 5px 0px'>
                 ". $row1["email"] . "
