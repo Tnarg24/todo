@@ -29,13 +29,13 @@ include "db_connection.php";
 
         //Run the Select query 
         //printf("Reading data from table: \n");
-        $res1 = mysqli_query($conn, 'SELECT * FROM login_page');
-        while ($row1 = mysqli_fetch_assoc($res1)) {
+        $res = mysqli_query($conn, 'SELECT * FROM login_page');
+        while ($row = mysqli_fetch_assoc($res)) {
         //    var_dump($row1); 
 
             echo "<div style='padding: 5px 0px 5px 0px'>
-                ". $row1["email"] . "
-                <div style='padding-top: 2px'>". $row1["password"] . "</div>
+                ". $row["email"] . "
+                <div style='padding-top: 2px'>". $row["password"] . "</div>
                 </div>
             ";
         }
