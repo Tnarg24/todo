@@ -23,6 +23,8 @@ include "db_connection.php";
            
         <h1>Login details</h1>
 
+        <a  href="login.html" class="btn btn-primary btn-md">Back</a>
+
     <?php
 
         //Run the Select query 
@@ -44,7 +46,7 @@ include "db_connection.php";
 
        
 
-        <a  href="login.html" class="btn btn-primary btn-md">Back</a>
+        
 
         
 
