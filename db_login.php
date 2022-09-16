@@ -5,14 +5,14 @@
 
 // print_r($conn);
 
-if (mysqli_query($conn, ' 
-    CREATE TABLE login_page ( 
-        `Id` INT NOT NULL AUTO_INCREMENT , 
-        `email` VARCHAR(100) NOT NULL , 
-        `password` VARCHAR(200) NOT NULL , 
-         PRIMARY KEY (`Id`) 
-    );
-')) 
+// if (mysqli_query($conn, ' 
+//     CREATE TABLE login_page ( 
+//         `Id` INT NOT NULL AUTO_INCREMENT , 
+//         `email` VARCHAR(100) NOT NULL , 
+//         `password` VARCHAR(200) NOT NULL , 
+//          PRIMARY KEY (`Id`) 
+//     );
+// ')) 
 
 
     if (isset($_POST["email"]) && isset($_POST["password"])){
