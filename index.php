@@ -101,7 +101,7 @@ include "db_connection.php";
 
 
             <!-- Trigger/Open The Modal -->
-            <button id="myBtn">Open Modal</button>
+            <button id="myBtn">Create New</button>
 
             <!-- The Modal -->
             <div id="myModal" class="modal">
@@ -137,6 +137,24 @@ include "db_connection.php";
                             <button style="margin-bottom: 15px;" class="submit-button" id="save_button" data-cool="12345">Save</button>
                             <button class="anchor" type="button" id="submit" onclick="window.location.href='index.php'">Back</button>                           
                         </div>
+
+                        <script>
+                             $(document).on('click', '#save_button', function(e){
+                                e.preventDefault();      
+                                
+                                $.ajax({
+                                    url: `db_create_task.php`, 
+                                    type: 'POST', //Request object
+                                    data: {
+                                        title :  $('#task_title').val(),
+                                        description :  $('#task_description').val() 
+                                    },
+                                    success: function(result){
+                                        console.log(result)
+                                    }
+                                });
+                            })
+                        </script>
 
 
                 
