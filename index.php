@@ -135,7 +135,7 @@ include "db_connection.php";
                 
                         <div><!--button-->
                             <button style="margin-bottom: 15px;" class="submit-button" id="save_button" data-cool="12345">Save</button>
-                            <button class="anchor" type="button" id="submit" onclick="window.location.href='index.php'">Back</button>                           
+                                                       
                         </div>
 
                         <script>
@@ -186,12 +186,7 @@ include "db_connection.php";
             modal.style.display = "none";
             }
 
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-            }
+            
             </script>
 
 </body>
