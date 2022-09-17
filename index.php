@@ -109,7 +109,41 @@ include "db_connection.php";
             <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <p>Some text in the Modal..</p>
+                
+
+                    <header class="header">
+                        <h1 id="title">
+                            Create Task
+                        </h1>
+                        <p id="description">
+                            Describe your task here
+                        </p>
+                    </header>
+                    
+                    <form id="survey-form">
+                
+                        <div class="form-group"> 
+                            <label for="task_title">Title</label>
+                            <input class="form-controlgs" type="text" id="task_title" required>
+                        </div>    
+                        
+                        
+                        <div class="form-group">
+                            <label for="task_description">Task description</label>
+                            <textarea class="input-textarea" id="task_description" name="comment" rows="3" ></textarea>
+                        </div>
+                
+                        <div><!--button-->
+                            <button style="margin-bottom: 15px;" class="submit-button" id="save_button" data-cool="12345">Save</button>
+                            <button class="anchor" type="button" id="submit" onclick="window.location.href='index.php'">Back</button>                           
+                        </div>
+
+
+                
+                    </form>      
+
+
+
             </div>
 
             </div>
