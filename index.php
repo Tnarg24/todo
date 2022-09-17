@@ -1,18 +1,6 @@
 <?php
 
-    $host = 'todoappdb.mysql.database.azure.com';
-    $username = 'standishg';
-    $password = 'Test1234?';
-    $db_name = 'appdatabase';
-    //Initializes MySQLi 
-    $conn = mysqli_init(); 
-    mysqli_ssl_set($conn,NULL,NULL, "DigiCertGlobalRootCA.crt.pem", NULL, NULL); 
-    // Establish the connection 
-    mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL); 
-    //If connection failed, show the error 
-    if (mysqli_connect_errno()) {    
-        die('Failed to connect to MySQL: '.mysqli_connect_error());
-    };
+include "db_connection.php";
 
 ?>
 
@@ -64,6 +52,111 @@
         <a  href="create_task.html" class="btn btn-primary btn-md">Create New</a>
 
         <a  href="login.html" class="btn btn-primary btn-md">Login</a>
+
+
+
+
+        <!-- Trigger/Open The Modal -->
+
+        <button id="myBtn">Open Modal</button>
+
+        <!-- The Modal -->
+
+        <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="container">
+
+        <header class="header">
+            <h1 id="title">
+                Create Task
+            </h1>
+            <p id="description">
+                Describe your task here
+            </p>
+        </header>
+        
+        <form id="survey-form">
+    
+            <div class="form-group"> 
+                <label for="task_title">Title</label>
+                <input class="form-controlgs" type="text" id="task_title" required>
+            </div>    
+            
+            
+            <div class="form-group">
+                <label for="task_description">Task description</label>
+                <textarea class="input-textarea" id="task_description" name="comment" rows="3" ></textarea>
+            </div>
+    
+            <div><!--button-->
+                <button style="margin-bottom: 15px;" class="submit-button" id="save_button" data-cool="12345">Save</button>
+                <button class="anchor" type="button" id="submit" onclick="window.location.href='index.php'">Back</button>                           
+            </div>
+    
+        </form>    
+    
+            
+    </div>
+        
+        
+
+        <script>
+
+            $(document).on('click', '#save_button', function(e){
+                e.preventDefault();      
+                
+                $.ajax({
+                    url: `db_create_task.php`, 
+                    type: 'POST', //Request object
+                    data: {
+                        title :  $('#task_title').val(),
+                        description :  $('#task_description').val() 
+                    },
+                    success: function(result){
+                        console.log(result)
+                    }
+                });
+            })
+        </div>
+
+        </div>
+
+        <script>
+        
+                    // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on the button, open the modal
+            btn.onclick = function() {
+            modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+            modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+
+  }
+}
+        
+        
+        </script>
+        
 
         
 
