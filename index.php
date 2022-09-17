@@ -186,6 +186,24 @@ include "db_connection.php";
             modal.style.display = "none";
             }
 
+            // save to db
+
+            $(document).on('click', '#save_button', function(e){
+                e.preventDefault();      
+                
+                $.ajax({
+                    url: `db_create_task.php`, 
+                    type: 'POST', //Request object
+                    data: {
+                        title :  $('#task_title').val(),
+                        description :  $('#task_description').val() 
+                    },
+                    success: function(result){
+                        console.log(result)
+                    }
+                });
+            })
+
             
             </script>
 
