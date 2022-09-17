@@ -138,23 +138,7 @@ include "db_connection.php";
                                                        
                         </div>
 
-                        <script>
-                             $(document).on('click', '#save_button', function(e){
-                                e.preventDefault();      
-                                
-                                $.ajax({
-                                    url: `db_create_task.php`, 
-                                    type: 'POST', //Request object
-                                    data: {
-                                        title :  $('#task_title').val(),
-                                        description :  $('#task_description').val() 
-                                    },
-                                    success: function(result){
-                                        console.log(result)
-                                    }
-                                });
-                            })
-                        </script>
+                    
 
 
                 
