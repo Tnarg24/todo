@@ -83,7 +83,7 @@ include "db_connection.php";
                 </div>
         
                 <div><!--button-->
-                    <button style="margin-bottom: 15px;" class="submit-button" id="save_button" data-cool="12345" type="submit">Save</button>                                            
+                    <button style="margin-bottom: 15px;" class="submit-button" id="save_button" data-cool="12345">Save</button>                                            
                 </div>         
             
             </form>      
