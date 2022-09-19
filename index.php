@@ -60,7 +60,7 @@ include "db_connection.php";
 
 
             <!-- Trigger/Open The Modal -->
-            <button id="myBtn">Create New</button>
+            <button id="myBtn" class="btn btn-primary btn-md">Create New</button>
 
             <!-- The Modal -->
             <div id="myModal" class="modal">
