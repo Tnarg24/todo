@@ -64,11 +64,11 @@ include "db_connection.php";
                         <form id="survey-form">
                             <div class="mb-3">
                                 <label for="task_title" class="form-label">Title</label>
-                                <input type="text" class="form-control" id="task_title">
+                                <input type="text" class="form-control" id="task_title" name="title">
                             </div>
                             <div class="mb-3">
                                 <label for="task_description" class="form-label">Description</label>
-                                <textarea class="form-control" id="task_description" rows="3"></textarea>
+                                <textarea class="form-control" id="task_description" rows="3" name="description"></textarea>
                             </div>                                              
                         </form> 
                     </div>
