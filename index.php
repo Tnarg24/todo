@@ -48,30 +48,38 @@ include "db_connection.php";
         <h2 style="margin-bottom: 80px;">ToDo</h2>
             <!-- Trigger the modal with a button -->
         <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_task_modal">
+        Launch demo modal
+        </button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+        <!-- Modal -->
+        <div class="modal fade" id="create_task_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create Task</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="survey-form">
+                            <div class="mb-3">
+                                <label for="task_title" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="task_title">
+                            </div>
+                            <div class="mb-3">
+                                <label for="task_description" class="form-label">Description</label>
+                                <textarea class="form-control" id="task_description" rows="3"></textarea>
+                            </div>                                              
+                        </form> 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="save_button">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
             
-        
             
     </div> 
 
@@ -81,6 +89,9 @@ include "db_connection.php";
         $(document).on('click', '#save_button', function(e){
             e.preventDefault();      
             
+            var form = $('#survey-form').serialize()
+            console.log(form)
+
             $.ajax({
                 url: `db_create_task.php`, 
                 type: 'POST', //Request object
