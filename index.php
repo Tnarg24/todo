@@ -22,34 +22,43 @@ include "db_connection.php";
 <body>
 
 
-    <?php
-
-        //Run the Select query 
-        //printf("Reading data from table: \n");
-        $res = mysqli_query($conn, 'SELECT * FROM tasks');
-        while ($row = mysqli_fetch_assoc($res)) {
-        //    var_dump($row); 
-
-            // echo "Product Name: " . $row["ProductName"];
-            // echo "<br /><br />";
-            // echo "Color: " . $row["Color"];
-
-            echo "<div style='padding: 5px 0px 5px 0px'>
-                ". $row["title"] . "
-                <div style='padding-top: 2px'>". $row["description"] . "</div>
-                </div>
-            ";
-        }
-
-    ?>
+   
 
 
     <div class="container">
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Tasks</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <div id="task_list">
+                    <?php
+
+                        //Run the Select query 
+                        //printf("Reading data from table: \n");
+                        $res = mysqli_query($conn, 'SELECT * FROM tasks');
+                        while ($row = mysqli_fetch_assoc($res)) {
+                        //    var_dump($row); 
+
+                            echo "<div style='padding: 5px 0px 5px 0px'>
+                                ". $row["title"] . "
+                                <div style='padding-top: 2px'>". $row["description"] . "</div>
+                                </div>
+                            ";
+                        }
+
+                    ?>
+                </div>
+            </div>
+        </div>
+
+
+
         <h2 style="margin-bottom: 80px;">ToDo</h2>
             <!-- Trigger the modal with a button -->
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_task_modal">
-        Launch demo modal
+        Create New Task
         </button>
 
         <!-- Modal -->
