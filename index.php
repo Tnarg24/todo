@@ -60,9 +60,6 @@ include "db_connection.php";
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_task_modal">
                     Create New Task
                     </button>
-                    <button type="button" class="btn btn-primary" id="delete_button">
-                    Delete Task
-                    </button>
                 </div>
             </div>
         </div>
@@ -116,20 +113,6 @@ include "db_connection.php";
                     title :  $('#task_title').val(),
                     description :  $('#task_description').val() 
                 },
-                success: function(result){
-                    console.log(result)
-                }
-            });
-        })
-
-
-        // delete from db
-        $(document).on('click', '#delete_button', function(e){
-            e.preventDefault();      
-
-            $.ajax({
-                url: `db_delete_task.php`, 
-                type: 'GET', //Request object
                 success: function(result){
                     console.log(result)
                 }
