@@ -64,11 +64,6 @@ include "db_connection.php";
             </div>
         </div>
 
-
-
-        
-            <!-- Trigger the modal with a button -->
-        <!-- Button trigger modal -->
         
 
         <!-- Modal -->
@@ -122,6 +117,7 @@ include "db_connection.php";
                     console.log(result)
                 }
             });
+            const reload=()=>window.location.reload()
         })
 
             
