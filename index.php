@@ -129,7 +129,7 @@ include "db_connection.php";
 
             $.ajax({
                 url: `db_delete_task.php`, 
-                type: 'POST', //Request object
+                type: 'GET', //Request object
                 success: function(result){
                     console.log(result)
                 }
