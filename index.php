@@ -27,13 +27,13 @@ include "db_connection.php";
 
     <div class="container">
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
+        <div class="card" style="width: 18rem;" >
+            <div class="card-body" >
                 <h5 class="card-title">Tasks</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                 <div id="task_list">
 
-                    <div class="list-group">
+                    <div class="list-group" id="task_card">
                         
                         <?php
 
@@ -99,6 +99,16 @@ include "db_connection.php";
 
     <script>
 
+        function appendtask(taskarg){
+            
+            $('#task_card').append(`<a href='#' class='list-group-item list-group-item-action' > ${taskarg.title} 
+            <br />
+            ${taskarg.description}
+            </a>`)
+
+
+        }
+
         // save to db
         $(document).on('click', '#save_button', function(e){
             e.preventDefault();      
@@ -106,15 +116,23 @@ include "db_connection.php";
             var form = $('#survey-form').serialize()
             console.log(form)
 
+            var _data = {
+                    title :  $('#task_title').val(),
+                    description :  $('#task_description').val() 
+                }
+
+
+
+
             $.ajax({
                 url: `db_create_task.php`, 
                 type: 'POST', //Request object
-                data: {
-                    title :  $('#task_title').val(),
-                    description :  $('#task_description').val() 
-                },
+                data: _data,
                 success: function(result){
                     console.log(result)
+
+
+                    appendtask(_data);
                 }
             });
         })

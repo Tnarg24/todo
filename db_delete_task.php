@@ -4,7 +4,7 @@
     include "db_connection.php";
 
 
-    $sql = "DELETE FROM tasks WHERE ID=3";
+    $sql = "DELETE FROM tasks WHERE Id=3";
 if(mysqli_query($link, $sql)){
     echo "Record was deleted successfully.";
 } 
