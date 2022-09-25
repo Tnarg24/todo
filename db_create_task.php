@@ -27,21 +27,18 @@
 
         // echo json_encode(array("status"=>"success"));
 
-
-        //Run the Select query 
-        //printf("Reading data from table: \n");
-        $res = mysqli_query($conn, 'select * from tasks limit 1 order by id desc');
-        while ($row = mysqli_fetch_assoc($res)) {
-        //    var_dump($row); 
-
-            echo "<a href='#' data-taskid='". $row["id"] . "' class='list-group-item list-group-item-action' >
-                    ". $row["title"] . "
+        $stmt = $conn->prepare('SELECT * from tasks limit 1 order by id desc');
+        $stmt->execute();
+        $data = $stmt->get_result()->fetch_assoc();
+      
+            echo "<a href='#' data-taskid='". $data["id"] . "' class='list-group-item list-group-item-action' >
+                    ". $data["title"] . "
                     <br />
-                    ". $row["description"] . "
+                    ". $data["description"] . "
                 </a>";
-        }
-
     }
+
+    
 
 
 
