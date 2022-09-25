@@ -34,7 +34,7 @@
         while ($row = mysqli_fetch_assoc($res)) {
         //    var_dump($row); 
 
-            echo "<a href='#' data-taskid='". $row["id"] . "' class='list-group-item list-group-item-action' >
+            echo "<a href='#' data-taskid='". $row["Id"] . "' class='list-group-item list-group-item-action' >
                     ". $row["title"] . "
                     <br />
                     ". $row["description"] . "
