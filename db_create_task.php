@@ -25,7 +25,21 @@
 
         // $task = $title ." - ". $description;
 
-        echo json_encode(array("status"=>"success"));
+        // echo json_encode(array("status"=>"success"));
+
+
+        //Run the Select query 
+        //printf("Reading data from table: \n");
+        $res = mysqli_query($conn, 'select * from tasks limit 1 order by id desc');
+        while ($row = mysqli_fetch_assoc($res)) {
+        //    var_dump($row); 
+
+            echo "<a href='#' data-taskid='". $row["id"] . "' class='list-group-item list-group-item-action' >
+                    ". $row["title"] . "
+                    <br />
+                    ". $row["description"] . "
+                </a>";
+        }
 
     }
 

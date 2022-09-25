@@ -43,7 +43,7 @@ include "db_connection.php";
                             while ($row = mysqli_fetch_assoc($res)) {
                             //    var_dump($row); 
 
-                                echo "<a href='#' class='list-group-item list-group-item-action' >
+                                echo "<a href='#' data-taskid='". $row["id"] . "' class='list-group-item list-group-item-action' >
                                         ". $row["title"] . "
                                         <br />
                                         ". $row["description"] . "
@@ -99,12 +99,19 @@ include "db_connection.php";
 
     <script>
 
+        // function appendtask(taskarg){
+            
+        //     $('#task_card').append(`<a href='#' class='list-group-item list-group-item-action' > ${taskarg.title} 
+        //     <br />
+        //     ${taskarg.description}
+        //     </a>`)
+
+
+        // }
+
         function appendtask(taskarg){
             
-            $('#task_card').append(`<a href='#' class='list-group-item list-group-item-action' > ${taskarg.title} 
-            <br />
-            ${taskarg.description}
-            </a>`)
+            $('#task_card').append(taskarg)
 
 
         }
@@ -132,7 +139,9 @@ include "db_connection.php";
                     console.log(result)
 
 
-                    appendtask(_data);
+                    // appendtask(_data);
+
+                    appendtask(result);
                 }
             });
         })
