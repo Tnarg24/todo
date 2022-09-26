@@ -1,6 +1,6 @@
 <?php
 
-include "db_connection.php";
+include "db_connection.php"; // includes connection to DB
 
 ?>
 
@@ -11,54 +11,42 @@ include "db_connection.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap library - used for CSS. Use bootstrap website to search styling of lists, forms buttons etc and copy/paste -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
+    <!-- Jquery used to select elements and perform action. Basic syntax is: $(selector).action() -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
     <title>MyFirstToDoApp</title>
-
 </head>
 
 <body>
 
-
-   
-
-
-    <div class="container">
-
-        <div class="card" style="width: 18rem;" >
+    <div class="container"> 
+        <div class="card" style="width: 100%;"> <!-- bootstrap card with all content inside -->
             <div class="card-body" >
                 <h5 class="card-title">Tasks</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                 <div id="task_list">
-
                     <div class="list-group" id="task_card">
-                        
-                        <?php
+                        <?php // This php runs once when the page first loads
 
-                            //Run the Select query 
-                            //printf("Reading data from table: \n");
+                            // $res variable connects to the database and returns the tasks table
                             $res = mysqli_query($conn, 'SELECT * FROM tasks');
-                            while ($row = mysqli_fetch_assoc($res)) {
-                            //    var_dump($row); 
 
+                            // The mysqli_fetch_assoc() function fetches a result row as an associative array. This now loops through and prints the title and description for each item in the array. The data-taskid pulls the Id from the DB and adds here (not seen from front end (useful for deleting individual records))
+                            while ($row = mysqli_fetch_assoc($res)) {
                                 echo "<a href='#' data-taskid='". $row["Id"] . "' class='list-group-item list-group-item-action' >
                                         ". $row["title"] . "
                                         <br />
                                         ". $row["description"] . "
-                                    </a>";
+                                    </a>"; // Why have we done this in an anchor?
                             }
-
                         ?>
-                      
-    
-                    </div>
-                   
+                    </div>  
                 </div>
                 <div class="card-footer">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_task_modal">
-                    Create New Task
+                    Create New Task <!-- Opens modal using bootstrap -->
                     </button>
                 </div>
             </div>
@@ -66,7 +54,7 @@ include "db_connection.php";
 
         
 
-        <!-- Modal -->
+        <!-- Modal Content (bootstrap) -->
         <div class="modal fade" id="create_task_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -99,53 +87,38 @@ include "db_connection.php";
 
     <script>
 
-        // function appendtask(taskarg){
-            
-        //     $('#task_card').append(`<a href='#' class='list-group-item list-group-item-action' > ${taskarg.title} 
-        //     <br />
-        //     ${taskarg.description}
-        //     </a>`)
-
-
-        // }
-
-        function appendtask(taskarg){
-            
-            $('#task_card').append(taskarg)
-
-
+        // This function appends title and description onto the page when the save button is clicked 
+        function appendtask(taskarg){ 
+            $('#task_card').append(taskarg) //select task_card and append taskarg (result of ajax below)
         }
 
         // save to db
-        $(document).on('click', '#save_button', function(e){
-            e.preventDefault();      
+        $(document).on('click', '#save_button', function(e){ // select document > on click > of save button  > run this function 
+            e.preventDefault(); // cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur - the default behaviour of a button in a form is to submit - this prevents that from happening. 
             
-            var form = $('#survey-form').serialize()
-            console.log(form)
-
-            var _data = {
+            var _data = { //Variable that holds an object - when the user adds a task and description > clicks save - the values are added to the title and desription object key
                     title :  $('#task_title').val(),
                     description :  $('#task_description').val() 
                 }
 
-
-
-
+            // jQuery AJAX request - exchanges data with a server, and update parts of a web page - without reloading the whole page.
             $.ajax({
-                url: `db_create_task.php`, 
-                type: 'POST', //Request object
-                data: _data,
-                success: function(result){
+                url: `db_create_task.php`, //specify the URL to send the request to
+                type: 'POST', //type of http request e.g. POST, PUT and GET. Default is GET.
+                data: _data, // Passes in the data from the object above
+                success: function(result){ // On success - run the append task function and pass in result as taskarg
                     console.log(result)
+                    appendtask(result);
+                    // clears form and closes modal
                     $('#survey-form')[0].reset()
                     $('#create_task_modal').toggle()
-                    // appendtask(_data);
-                    appendtask(result);
                 }
             });
         })
 
-        // clear form and close modal 
+        // creates a text string in standard URL-encoded notation
+        var form = $('#survey-form').serialize()
+            console.log(form)
 
             
     </script>
