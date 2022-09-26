@@ -88,7 +88,7 @@ include "db_connection.php";
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="save_button">Save changes</button>
+                        <button type="button" class="btn btn-primary" id="save_button" data-bs-dismiss="modal">Save changes</button>
                     </div>
                 </div>
             </div>
