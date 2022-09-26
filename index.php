@@ -137,7 +137,7 @@ include "db_connection.php";
                 data: _data,
                 success: function(result){
                     console.log(result)
-                    $('#survey-form').reset()
+                    $('#survey-form')[0].reset()
                     $('#create_task_modal').toggle()
                     // appendtask(_data);
                     appendtask(result);
