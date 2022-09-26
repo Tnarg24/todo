@@ -6,7 +6,7 @@
 // print_r($conn);
 
 
-    if (isset($_POST["title"]) && isset($_POST["description"])){
+    if (isset($_GET["title"]) && isset($_GET["description"])){
         // Create an Insert prepared statement and run it 
         
         
@@ -14,9 +14,9 @@
             INSERT INTO tasks (title, description)
             VALUES (?, ?)
         ")) {     
-            mysqli_stmt_bind_param($stmt, 'ss', $_POST['title'], $_POST['description']);
+            mysqli_stmt_bind_param($stmt, 'ss', $_GET['title'], $_GET['description']);
             mysqli_stmt_execute($stmt);
-            // printf("Insert: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
+            // printf("Insert: Affected %d _GETrows\n", mysqli_stmt_affected_rows($stmt));
             mysqli_stmt_close($stmt);
         }
 
