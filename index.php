@@ -22,7 +22,7 @@ include "db_connection.php"; // includes connection to DB
 <body>
 
     <div class="container"> 
-        <div class="card" style="width: 100%;"> <!-- bootstrap card with all content inside -->
+        <div class="card" style="width: 100%; margin-top: 30px"> <!-- bootstrap card with all content inside -->
             <div class="card-body" >
                 <h5 class="card-title">Tasks</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
