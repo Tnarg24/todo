@@ -28,20 +28,7 @@ include "db_connection.php"; // includes connection to DB
                 <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                 <div id="task_list">
                     <div class="list-group" id="task_card">
-                        <?php // This php runs once when the page first loads
 
-                            // $res variable connects to the database and returns the tasks table
-                            $res = mysqli_query($conn, 'SELECT * FROM tasks');
-
-                            // The mysqli_fetch_assoc() function fetches a result row as an associative array. This now loops through and prints the title and description for each item in the array. The data-taskid pulls the Id from the DB and adds here (not seen from front end (useful for deleting individual records))
-                            while ($row = mysqli_fetch_assoc($res)) {
-                                echo "<a href='#' data-taskid='". $row["Id"] . "' data-tasktitle='". $row["title"] ."' data-taskdescription='". $row["description"] . "' class='list-group-item list-group-item-action task-item'  >
-                                        ". $row["title"] . "
-                                        <br />
-                                        ". $row["description"] . "
-                                    </a>"; // Why have we done this in an anchor?
-                            }
-                        ?>
                     </div>  
                 </div>
                 <div class="card-footer">
@@ -127,6 +114,17 @@ include "db_connection.php"; // includes connection to DB
         // creates a text string in standard URL-encoded notation
         var form = $('#survey-form').serialize()
             console.log(form)
+
+
+        $(document).ready(function(){
+            $.ajax({
+                url: `tasks/index.php`, //specify the URL to send the request to
+                type: 'GET', //type of http request e.g. POST, PUT and GET. Default is GET.
+                success: function(result){ 
+                    $('#task_card').html(result)
+                }
+            });
+        })
 
             
     </script>
