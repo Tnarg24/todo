@@ -118,7 +118,7 @@ include "db_connection.php"; // includes connection to DB
 
         $(document).ready(function(){
             $.ajax({
-                url: `Tasks/index.php`, //specify the URL to send the request to
+                url: `/Tasks/index.php`, //specify the URL to send the request to
                 type: 'GET', //type of http request e.g. POST, PUT and GET. Default is GET.
                 success: function(result){ 
                     $('#task_card').html(result)
