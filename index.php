@@ -111,7 +111,7 @@ include "db_connection.php"; // includes connection to DB
                     appendtask(result);
                     // clears form and closes modal
                     $('#survey-form')[0].reset()
-                    $('#create_task_modal').toggle()
+                    
                 }
             });
         })
