@@ -35,7 +35,7 @@ include "db_connection.php"; // includes connection to DB
 
                             // The mysqli_fetch_assoc() function fetches a result row as an associative array. This now loops through and prints the title and description for each item in the array. The data-taskid pulls the Id from the DB and adds here (not seen from front end (useful for deleting individual records))
                             while ($row = mysqli_fetch_assoc($res)) {
-                                echo "<a href='#' data-taskid='". $row["Id"] . "' class='list-group-item list-group-item-action' >
+                                echo "<a href='#' data-taskid='". $row["Id"] . "' data-tasktitle='". $row["title"] ."' data-taskdescription='". $row["description"] . "' class='list-group-item list-group-item-action task-item'  >
                                         ". $row["title"] . "
                                         <br />
                                         ". $row["description"] . "
@@ -76,7 +76,7 @@ include "db_connection.php"; // includes connection to DB
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="save_button">Save changes</button>
+                        <button type="button" class="btn btn-primary" id="save_button" data-bs-dismiss="modal">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -111,10 +111,18 @@ include "db_connection.php"; // includes connection to DB
                     appendtask(result);
                     // clears form and closes modal
                     $('#survey-form')[0].reset()
-                    $('#create_task_modal').modal('hide')
                 }
             });
         })
+
+        $(document).on('click', '.task-item', function(){
+           var title = $(this).data('tasktitle')
+           var description = $(this).data('taskdescription')
+           $('#create_task_modal').modal('show')
+           $('#task_title').val(title)
+           $('#task_description').val(description)
+            
+        }) 
 
         // creates a text string in standard URL-encoded notation
         var form = $('#survey-form').serialize()
