@@ -75,9 +75,9 @@ include "db_connection.php"; // includes connection to DB
     <script>
 
         // This function appends title and description onto the page when the save button is clicked 
-        function appendtask(taskarg){ 
-            $('#task_card').append(taskarg) //select task_card and append taskarg (result of ajax below)
-        }
+        // function appendtask(taskarg){ 
+        //     $('#task_card').append(taskarg) //select task_card and append taskarg (result of ajax below)
+        // }
 
         // save to db
         $(document).on('click', '#save_button', function(e){ // select document > on click > of save button  > run this function 
@@ -94,8 +94,9 @@ include "db_connection.php"; // includes connection to DB
                 type: 'POST', //type of http request e.g. POST, PUT and GET. Default is GET.
                 data: _data, // Passes in the data from the object above
                 success: function(result){ // On success - run the append task function and pass in result as taskarg
-                    console.log(result)
-                    appendtask(result);
+                    loadtasklist()
+
+                    // appendtask(result);
                     // clears form and closes modal
                     $('#survey-form')[0].reset()
                 }
@@ -116,7 +117,7 @@ include "db_connection.php"; // includes connection to DB
             console.log(form)
 
 
-        $(document).ready(function(){
+        function loadtasklist(){
             $.ajax({
                 url: `/Tasks/index.php`, //specify the URL to send the request to
                 type: 'GET', //type of http request e.g. POST, PUT and GET. Default is GET.
@@ -124,6 +125,10 @@ include "db_connection.php"; // includes connection to DB
                     $('#task_card').html(result)
                 }
             });
+        }
+
+        $(document).ready(function(){
+           loadtasklist()
         })
 
             
