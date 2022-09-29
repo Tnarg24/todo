@@ -1,6 +1,6 @@
 <?php
 
-include "db_connection.php";
+include "../db_connection.php";
 
 
 
@@ -13,7 +13,7 @@ while ($row = mysqli_fetch_assoc($res)) {
             ". $row["title"] . "
             <br />
             ". $row["description"] . "
-        </a>"; // Why have we done this in an anchor?
+        </a>"; 
 }
 
 
