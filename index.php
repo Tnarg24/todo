@@ -76,7 +76,7 @@ include "db_connection.php"; // includes connection to DB
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="save_button" data-bs-dismiss="modal">Save changes</button>
+                        <button type="button" class="btn btn-primary" id="save_button">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@ include "db_connection.php"; // includes connection to DB
                     appendtask(result);
                     // clears form and closes modal
                     $('#survey-form')[0].reset()
-                    
+                    $('#create_task_modal').modal('hide')
                 }
             });
         })
