@@ -35,6 +35,8 @@ include "db_connection.php"; // includes connection to DB
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_task_modal">
                     Create New Task <!-- Opens modal using bootstrap -->
                     </button>
+                    <button type="button" class="btn btn-primary" id="delete_button">Delete All</button>
+
                 </div>
             </div>
         </div>
@@ -64,7 +66,7 @@ include "db_connection.php"; // includes connection to DB
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary" id="save_button" data-bs-dismiss="modal">Save changes</button>
-                        <button type="button" class="btn btn-primary" id="delete_button" data-bs-dismiss="modal">Delete</button>
+                        
                     </div>
                 </div>
             </div>
