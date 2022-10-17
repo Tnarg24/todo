@@ -66,6 +66,7 @@ include "db_connection.php"; // includes connection to DB
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary" id="save_button" data-bs-dismiss="modal">Save changes</button>
+                        <button type="button" class="btn btn-primary" id="delete_task_button" data-bs-dismiss="modal">Delete Task</button>
                         
                     </div>
                 </div>
@@ -134,14 +135,14 @@ include "db_connection.php"; // includes connection to DB
            loadtasklist()
         })
 
-        // Delete
+        // Delete All
 
-        $(document).on('click', '#delete_button', function(e){ // select document > on click > of save button  > run this function 
-            e.preventDefault(); // cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur - the default behaviour of a button in a form is to submit - this prevents that from happening. 
+        $(document).on('click', '#delete_button', function(e){
+            e.preventDefault(); 
             
             $.ajax({
-                url: `/Tasks/delete.php`, //specify the URL to send the request to
-                type: 'DELETE', //type of http request e.g. POST, PUT and GET. Default is GET.
+                url: `/Tasks/delete.php`, 
+                type: 'DELETE', 
                 success: function(result){ 
                     $('#task_card').html(result)
                 }
@@ -149,6 +150,22 @@ include "db_connection.php"; // includes connection to DB
 
             
         })
+
+        // Delete task
+
+        $(document).on('click', '#delete_task_button', function(e){
+            e.preventDefault(); 
+            
+            $.ajax({
+                url: `/Tasks/delete_task.php`, 
+                type: 'DELETE', 
+                success: function(result){ 
+                    $('#task_card').html(result)
+                }
+            });
+
+            
+        })       
 
             
     </script>
