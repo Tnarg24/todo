@@ -25,7 +25,7 @@ include "db_connection.php"; // includes connection to DB
         <div class="card" style="width: 100%; margin-top: 30px"> <!-- bootstrap card with all content inside -->
             <div class="card-body" >
                 <h5 class="card-title">Tasks</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Add your tasks here</h6>
                 <div id="task_list">
                     <div class="list-group" id="task_card">
 
@@ -64,6 +64,7 @@ include "db_connection.php"; // includes connection to DB
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary" id="save_button" data-bs-dismiss="modal">Save changes</button>
+                        <button type="button" class="btn btn-primary" id="delete_button" data-bs-dismiss="modal">Delete</button>
                     </div>
                 </div>
             </div>
@@ -129,6 +130,22 @@ include "db_connection.php"; // includes connection to DB
 
         $(document).ready(function(){
            loadtasklist()
+        })
+
+        // Delete
+
+        $(document).on('click', '#delete_button', function(e){ // select document > on click > of save button  > run this function 
+            e.preventDefault(); // cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur - the default behaviour of a button in a form is to submit - this prevents that from happening. 
+            
+            $.ajax({
+                url: `/Tasks/delete.php`, //specify the URL to send the request to
+                type: 'DELETE', //type of http request e.g. POST, PUT and GET. Default is GET.
+                success: function(result){ 
+                    $('#task_card').html(result)
+                }
+            });
+
+            
         })
 
             
