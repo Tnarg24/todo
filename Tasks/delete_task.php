@@ -17,7 +17,7 @@ if (mysqli_connect_errno()) {
 
 
 // $res variable connects to the database and returns the tasks table
-$res = mysqli_query($conn, 'delete FROM appdatabase.tasks where Id > 1');
+$res = mysqli_query($conn, 'delete FROM tasks where Id > 1');
 
 
 
