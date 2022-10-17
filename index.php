@@ -65,8 +65,9 @@ include "db_connection.php"; // includes connection to DB
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="save_button" data-bs-dismiss="modal">Save changes</button>
                         <button type="button" class="btn btn-primary" id="delete_task_button" data-bs-dismiss="modal">Delete Task</button>
+                        <button type="button" class="btn btn-primary" id="save_button" data-bs-dismiss="modal">Save changes</button>
+
                         
                     </div>
                 </div>
@@ -159,10 +160,10 @@ include "db_connection.php"; // includes connection to DB
             $.ajax({
                 url: `/Tasks/delete_task.php`, 
                 type: 'GET', 
-                success: function(result){ 
-                    $('#task_card').html(result)
-                }
+                success: loadtasklist()
             });
+
+
 
             
         })       
