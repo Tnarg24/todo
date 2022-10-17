@@ -159,13 +159,11 @@ include "db_connection.php"; // includes connection to DB
             
             $.ajax({
                 url: `/Tasks/delete_task.php`, 
-                type: 'GET', 
+                type: 'POST', 
                 success: function(result){ 
                     $('#task_card').html(result)
                 }
             });
-
-            loadtasklist()
 
             
         })       
