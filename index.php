@@ -168,6 +168,7 @@ include "db_connection.php"; // includes connection to DB
             
         })       
 
+
             
     </script>
 
