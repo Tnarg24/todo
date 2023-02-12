@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ajax and Power Automate Example</title>
+</head>
+<body>
+  <h1>Ajax and Power Automate Example</h1>
+
+  <input type="text" id="input-text" placeholder="Enter Name">
+  <button id="submit-button" type="submit">Submit</button>
+
+  <div id="output"></div>
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+<script>
+    $(document).ready(function() {
+  $('#submit-button').click(function() {
+    // Get the value from the text input
+    var inputValue = $('#input-text').val();
+
+    // Trigger the Power Automate flow
+    triggerPowerAutomateFlow(inputValue);
+  });
+
+  function triggerPowerAutomateFlow(inputValue) {
+    // Your code to trigger the Power Automate flow here
+
+    // For example, using jQuery's ajax function:
+    $.ajax({
+      url: 'https://prod-21.uksouth.logic.azure.com:443/workflows/46623c8814b74a93a576c824716a7de9/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_dN-Hn9aQYhvbCUFHjmRyzHfHkkeZhZSAe-dW94xvHQ',
+      type: 'POST',
+      data: { inputValue: inputValue },
+      success: function(data) {
+        // Handle the response from the Power Automate flow
+        addDataToBody(data);
+      },
+      error: function(error) {
+        console.error(error);
+      }
+    });
+  }
+
+  function addDataToBody(data) {
+    // Your code to add the data to the body of the HTML here
+
+    // For example, using jQuery:
+    $('#output').html(data);
+  }
+});
+
+</script>
+</body>
+
+
+
+</html>

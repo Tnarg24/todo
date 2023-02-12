@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@microsoft/generator-sharepoint": "^1.16.1"
+  }
+}
