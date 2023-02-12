@@ -16,8 +16,8 @@
 
 
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="script.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="script.js"></script>
 <script>
     $(document).ready(function() {
   $('#submit-button').click(function() {
@@ -53,6 +53,22 @@
     $('#output').html(data);
   }
 });
+
+$.ajax({
+  type: "POST",
+  url: "https://prod-21.uksouth.logic.azure.com:443/workflows/46623c8814b74a93a576c824716a7de9/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_dN-Hn9aQYhvbCUFHjmRyzHfHkkeZhZSAe-dW94xvHQ",
+  data: JSON.stringify({text: textInputValue}),
+  contentType: "application/json",
+  success: function(data) {
+    $.each(data.ResultSets.Table1, function(index, item) {
+      $("body").append("<p>" + item.FirstName + " " + item.LastName + "</p>");
+      $("body").append("<p>" + item.PhoneNumber + "</p>");
+      $("body").append("<p>" + item.AddressLine1 + "</p>");
+      $("body").append("<p>" + item.City + "</p>");
+    });
+  }
+});
+
 
 </script>
 </body>
